@@ -1836,9 +1836,9 @@ void text(Numeric x, Numeric y, const std::string& s = "")
     detail::_interpreter::get();
 
     PyObject* args = PyTuple_New(3);
-    PyTuple_SetItem(args, 0, PyLong_FromDouble(nrows));
-    PyTuple_SetItem(args, 1, PyLong_FromDouble(ncols));
-    PyTuple_SetItem(args, 2, PyLong_FromDouble(plot_number));
+    PyTuple_SetItem(args, 0, PyLong_FromDouble(x));
+    PyTuple_SetItem(args, 1, PyLong_FromDouble(y));
+    PyTuple_SetItem(args, 2, PyLong_FromDouble(s));
 
     PyObject* res = PyObject_CallObject(detail::_interpreter::get().s_python_function_text, args);
     if(!res) throw std::runtime_error("Call to text() failed.");
